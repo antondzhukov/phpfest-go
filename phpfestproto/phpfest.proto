@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package phpfestproto;
+
+service PHPFest {
+  rpc GetMessage (GetMessageRequest) returns (GetMessageResponse) {}
+}
+
+message GetMessageRequest {
+  	double     tdouble = 1;
+  	float       tfloat = 2;
+  	int32       tint32 = 3;
+  	int64       tint64 = 4;
+  	uint32     tuint32 = 5;
+  	uint64     tuint64 = 6;
+  	sint32     tsint32 = 7;
+  	sint64     tsint64 = 8;
+  	fixed32   tfixed32 = 9;
+  	fixed64   tfixed64 = 10;
+  	sfixed32 tsfixed32 = 11;
+  	sfixed64 tsfixed64 = 12;
+  	bool         tbool = 13;
+  	string     tstring = 14;
+  	bytes        tbyte = 15;
+	  TypesMessage tmessage = 16;
+}
+
+message GetMessageResponse {
+	double     tdouble = 1;
+	float       tfloat = 2;
+	int32       tint32 = 3;
+	int64       tint64 = 4;
+	uint32     tuint32 = 5;
+	uint64     tuint64 = 6;
+	sint32     tsint32 = 7;
+	sint64     tsint64 = 8;
+	fixed32   tfixed32 = 9;
+	fixed64   tfixed64 = 10;
+	sfixed32 tsfixed32 = 11;
+	sfixed64 tsfixed64 = 12;
+	bool         tbool = 13;
+	string     tstring = 14;
+	bytes        tbyte = 15;
+	TypesMessage tmessage = 16;
+}
+
+message TypesMessage {
+	double     tdouble = 1;
+	float       tfloat = 2;
+	int32       tint32 = 3;
+	int64       tint64 = 4;
+	uint32     tuint32 = 5;
+	uint64     tuint64 = 6;
+	sint32     tsint32 = 7;
+	sint64     tsint64 = 8;
+	fixed32   tfixed32 = 9;
+	fixed64   tfixed64 = 10;
+	sfixed32 tsfixed32 = 11;
+	sfixed64 tsfixed64 = 12;
+	bool         tbool = 13;
+	string     tstring = 14;
+	bytes        tbyte = 15;
+}
