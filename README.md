@@ -2,9 +2,9 @@ Demo project with gRPC and protobuf especially for PHPFest conference
 
 ## Environment installations
 
-### 1. protoc
+### 1. protoc && protobuf
 
-see http://google.github.io/proto-lens/installing-protoc.html
+see https://grpc.io/docs/protoc-installation/
 
 ### 2. protoc-gen-go
 
