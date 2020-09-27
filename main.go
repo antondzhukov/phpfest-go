@@ -8,10 +8,7 @@ import (
 	"google.golang.org/grpc"
 	"math"
 	"net"
-	"net/http"
-	_ "net/http/pprof"
 	"os"
-	"runtime"
 	"syscall"
 )
 
@@ -69,25 +66,22 @@ func init() {
 }
 
 func main() {
-	go http.ListenAndServe("0.0.0.0:8080", nil)
-
-	runtime.GOMAXPROCS(3)
-
-	allowedTypes = AllowedT{}
-	allowedTypes.TDouble = [3]float64{math.SmallestNonzeroFloat64, 0.0, math.MaxFloat64}
-	allowedTypes.TFloat = [3]float32{math.SmallestNonzeroFloat32, 0.0, math.MaxFloat32}
-	allowedTypes.TInt32 = [3]int32{math.MinInt32, 0, math.MaxInt32}
-	allowedTypes.TInt64 = [3]int64{math.MinInt64, 0, math.MaxInt64}
-	allowedTypes.TUint32 = [3]uint32{0, uint32(math.MaxUint32 / 2), math.MaxUint32}
-	allowedTypes.TUint64 = [3]uint64{0, uint64(math.MaxUint64 / 2), math.MaxUint64}
-	allowedTypes.TSInt32 = [3]int32{math.MinInt32, 0, math.MaxInt32}
-	allowedTypes.TSInt64 = [3]int64{math.MinInt64, 0, math.MaxInt64}
-	allowedTypes.TFixed32 = [3]uint32{0, uint32(math.MaxUint32 / 2), math.MaxUint32}
-	allowedTypes.TFixed64 = [3]uint64{0, uint64(math.MaxUint64 / 2), math.MaxUint64}
-	allowedTypes.TSFixed32 = [3]int32{math.MinInt32, 0, math.MaxInt32}
-	allowedTypes.TSFixed64 = [3]int64{math.MinInt64, 0, math.MaxInt64}
-	allowedTypes.TString = [3]string{"", "abcdefghijklmn012345", "abcdefghijklmnopqrstuvwxyz0123456789"}
-	allowedTypes.TBytes = [3][]byte{[]byte(""), []byte("abcdefghijklmn012345"), []byte("abcdefghijklmnopqrstuvwxyz0123456789")}
+	allowedTypes = AllowedT{
+		TDouble:   [3]float64{math.SmallestNonzeroFloat64, 0.0, math.MaxFloat64},
+		TFloat:    [3]float32{math.SmallestNonzeroFloat32, 0.0, math.MaxFloat32},
+		TInt32:    [3]int32{math.MinInt32, 0, math.MaxInt32},
+		TInt64:    [3]int64{math.MinInt64, 0, math.MaxInt64},
+		TUint32:   [3]uint32{0, uint32(math.MaxUint32 / 2), math.MaxUint32},
+		TUint64:   [3]uint64{0, uint64(math.MaxUint64 / 2), math.MaxUint64},
+		TSInt32:   [3]int32{math.MinInt32, 0, math.MaxInt32},
+		TSInt64:   [3]int64{math.MinInt64, 0, math.MaxInt64},
+		TFixed32:  [3]uint32{0, uint32(math.MaxUint32 / 2), math.MaxUint32},
+		TFixed64:  [3]uint64{0, uint64(math.MaxUint64 / 2), math.MaxUint64},
+		TSFixed32: [3]int32{math.MinInt32, 0, math.MaxInt32},
+		TSFixed64: [3]int64{math.MinInt64, 0, math.MaxInt64},
+		TString:   [3]string{"", "abcdefghijklmn012345", "abcdefghijklmnopqrstuvwxyz0123456789"},
+		TBytes:    [3][]byte{[]byte(""), []byte("abcdefghijklmn012345"), []byte("abcdefghijklmnopqrstuvwxyz0123456789")},
+	}
 
 	listenAndServe()
 }
